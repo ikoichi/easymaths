@@ -1,0 +1,178 @@
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+@import url(http://fonts.googleapis.com/css?family=Coming+Soon);
+
+html{
+	position: relative;
+}
+body{
+	margin: 0;
+	padding: 0;
+	background-image: url("https://s3.amazonaws.com/iko-personal/white_grid.png");
+	color: #1A1B1E;
+	/*font-family: 'Give You Glory', cursive;*/
+	font-family: 'Coming Soon', cursive;
+	font-size: 14px;
+	text-align: center;
+}
+
+a{
+	color: inherit;
+	text-decoration: none;
+}
+a:hover{
+	color:#666666;
+}
+
+h3{
+	color: black;
+	font-size: 30px;
+}
+
+button{
+	background-color: #6ED6D7;
+	border: 1px none;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 0 2px 0 #216782;
+	color: #18607D;
+	font-size: 16px;
+	padding: 5px 10px;
+	text-shadow: 0 -1px #A7F4E6;
+}
+button:hover{
+	background-color: #73E6E4;
+	cursor: pointer;
+}
+
+
+input{
+	-moz-transition: all 0.5s ease-in-out 0s;
+	background-color: transparent;
+	border: 2px dashed #C1DFFF;
+	border-radius: 0 0 0 0;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 -1px 0 rgba(255, 255, 255, 0.2) inset;
+	color: #708395;
+	font-size: 35px;
+	padding: 10px 5px 3px;
+	text-align: center;
+	text-shadow: 0 1px #FFFFFF;
+	outline: none;
+	font-family: 'Coming Soon', cursive;
+	-webkit-transition: all 0.5s ease-in-out; 
+	-moz-transition: all 0.5s ease-in-out; 
+	-o-transition: all 0.5s ease-in-out; 
+	-ms-transition: all 0.5s ease-in-out;
+}
+input:focus{
+	border: 2px dashed #1C5592;
+	background-color: rgba(225, 247, 255, 0.8);
+	color: #384C5F;
+}
+
+.center{
+	background-color: #FFFFFF;
+	border: 15px solid #FFFDE7;
+	box-shadow: 0 3px 10px #E4E4E4, 0 1px 0 #F4E4A7;
+	display: inline-block;
+	margin: 40px auto auto;
+	padding: 20px;
+}
+
+.operator{
+	font-size: 60px;
+	padding: 5px 15px;
+	margin: 10px;
+	font-weight: normal;
+	/*
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 6px;
+	box-shadow: 0 1px 0px #767676 inset, 0 1px #EFEFEF;
+	text-shadow: 0 1px white;
+	*/
+}
+.operation{
+	color: black;
+	display: inline-block;
+	font-size: 40px;
+	font-weight: bold;
+	height: 30px;
+	line-height: 35px;
+	margin: 10px;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+	width: 30px;
+}
+
+.result-overlay{
+	position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+}
+
+.result-message{
+	color: black;
+	font-size: 60px;
+	font-weight: bold;
+	left: 50%;
+	margin-left: -230px;
+	position: fixed;
+	top: 30%;
+	width: 460px;
+}
+
+.ball{
+	border-radius: 1000px;
+	padding: 30px;
+	box-shadow: 0 1px 4px black;
+	width: 50px;
+	height: 50px;
+	margin: 20px;
+	display: inline-block;
+	vertical-align: bottom;
+	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+.ball .val{
+	font-size: 50px;
+	line-height: 30px;
+	margin-bottom: 3px;
+	margin-left: -25px;
+	margin-top: 10px;
+	text-align: center;
+	width: 100px;
+}
+.ball .label{
+	font-style: italic;
+	font-weight: bold;
+}
+
+.ball.good{
+	background-color: #35E189;
+	box-shadow: 0 2px 0 #74B83E;
+}
+.ball.bad{
+	background-color: #F85151;
+	box-shadow: 0 2px 0 #A92323;
+}
+.ball.time{
+	background-color: #8FC9FF;
+	box-shadow: 0 2px 0 #74ADDC;
+}
+
+.toolbar{
+	position: absolute;
+	top: 0;
+	left: 30px;
+	border-bottom: 7px solid #FFFDE7;
+	border-right: 7px solid #FFFDE7;
+	border-left: 7px solid #FFFDE7;
+	padding: 3px 6px;
+	background: white;
+	box-shadow: 0 3px 10px #E4E4E4, 0 1px 0 #F4E4A7;
+}
+
+.time{
+	text-align: right;
+	font-size: 16px;
+}
+

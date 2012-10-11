@@ -1,0 +1,28 @@
+!!! transitional
+html
+	head
+		link(rel="stylesheet",href="../../stylesheets/style.css")
+		link(href='http://fonts.googleapis.com/css?family=Give+You+Glory',rel='stylesheet',type='text/css')
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js")
+	body
+		div.toolbar
+			span
+				a(href="/user/#{user}") Let me count again!
+				span &nbsp;&nbsp;-&nbsp; 
+				a(href="/logout") Logout
+
+		div.center
+			h3 #{user} homeworks : )
+			div(style="text-align: center")
+				div.ball.good
+					div.val #{stats.success}
+					div.label right
+				div.ball.bad
+					div.val #{stats.failed}
+					div.label wrong
+				div.ball.time
+					div.val #{stats.average_time}
+					div.label seconds
+			br
+			a(href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Feasymath.eu01.aws.af.cm%2F&text=Check+out+my+maths+homeworks!&url=http%3A%2F%2Feasymath.eu01.aws.af.cm%2Fuser%2F#{user}%2Fstats",target="_blank")
+				button Share on Twitter

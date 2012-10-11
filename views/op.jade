@@ -1,0 +1,81 @@
+!!! transitional
+html
+    head
+        link(rel="stylesheet",href="../stylesheets/style.css")
+        link(href='http://fonts.googleapis.com/css?family=Give+You+Glory',rel='stylesheet',type='text/css')
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js")
+        script
+            $(document).ready(function(){
+                $('input').val('').focus();
+            });
+
+            var start = new Date();
+
+            setInterval(function(){
+                var now = new Date();
+                var diff = Math.floor( ( now.getTime() - start.getTime() ) / 1000 );
+                var label = diff == 1 ? 'second' : 'seconds';
+                $('.time').text(diff+' '+label);
+            },1000);
+
+            function checkResult(form){
+
+                var data = { a: #{operation.a}, b: #{operation.b}, operator: '#{operation.operation}', user: '#{user}' }
+                data.answer = $('input').val();
+                if( data.answer == '' ){
+                    return;
+                }
+                data.time = new Date().getTime() - start.getTime();
+                $.ajax({
+                        url: '../check',
+                        type: 'post',
+                        data: data,
+                        dataType: 'json',
+                        success: function(data){
+
+                            var message = data.result == true ? 
+                                            'Well done! : )'
+                                            : 'Bad answer : ( It was '+data.answer
+
+                            $('<div>')
+                                .width( $(document).width() )
+                                .height( $(document).height() )
+                                .addClass('result-overlay')
+                                .append( 
+                                    $('<div>') 
+                                        .addClass('result-message')
+                                        .text(message)
+                                )
+                                .appendTo( $('body') )
+
+                            $(window).bind('keydown',function(e){
+                                e.preventDefault();
+                                if( e.keyCode == 13 ){
+                                    window.location.reload()
+                                }
+                            });
+                            setTimeout(function(){
+                                window.location.reload()
+                            },3000)
+                        }
+                    })
+            }
+    body
+
+        div.toolbar
+            span
+                a(href="/user/#{user}/stats") Your results
+                span &nbsp;&nbsp;-&nbsp; 
+                a(href="/logout") Logout
+
+        form(onsubmit="checkResult(this); return false;")
+            div.center
+                h3 #{user}
+                p.operator
+                    span #{operation.a}
+                    span.operation #{operation.operation}
+                    span #{operation.b}
+                input(type="text",autocomplete="off")
+
+                div
+                    div.time 1 second
