@@ -89,6 +89,7 @@ app.get('/user/:name/stats', function(req, res){
           'userstats', 
           { 
             user: req.params.name,
+            sess_name: req.session.user,
             stats: stats
           }, 
           function(err, html){

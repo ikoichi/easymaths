@@ -12,7 +12,9 @@ html
 				a(href="/logout") Logout
 
 		div.center
-			h3 #{user} homeworks : )
+			h3 
+				a(href="http://www.twitter.com/#{user}",target="_blank") @#{user} 
+				span homeworks : )
 			div(style="text-align: center")
 				div.ball.good
 					div.val #{stats.success}
@@ -24,5 +26,6 @@ html
 					div.val #{stats.average_time}
 					div.label seconds
 			br
-			a(href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Feasymath.eu01.aws.af.cm%2F&text=Check+out+my+maths+homeworks!&url=http%3A%2F%2Feasymath.eu01.aws.af.cm%2Fuser%2F#{user}%2Fstats",target="_blank")
-				button Share on Twitter
+			if sess_name == user
+				a(href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Feasymath.eu01.aws.af.cm%2F&text=Check+out+my+maths+homeworks!&url=http%3A%2F%2Feasymath.eu01.aws.af.cm%2Fuser%2F#{user}%2Fstats",target="_blank")
+					button Share on Twitter
