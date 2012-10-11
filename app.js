@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -8,12 +7,12 @@ var oauth = require('oauth');
 var sys = require('sys');
 var mongodb = require("mongodb"),
     mongoserver = new mongodb.Server('127.0.0.1', 27017, {}),
-    db_connector = new mongodb.Db('personal', mongoserver, {});
+    db_connector = new mongodb.Db('dbname', mongoserver, {});
 
 var app = express();
 
-var _twitterConsumerKey = 'bi4yC0uTS7OtzbeeLdzOA';
-var _twitterConsumerSecret = 'K0vDjbGytZ9IxMv7zroEBwoZJ3SZS3oKeo9nqL7tQ';
+var _twitterConsumerKey = 'abcdefghilmno';
+var _twitterConsumerSecret = 'abcdefghilmnoabcdefghilmnoabcdefghilmnoabcdefghilmno';
 
 // Configuration
 
@@ -172,7 +171,7 @@ console.log("Express server listening on port 3000 in %s mode", app.settings.env
 function consumer() {
   return new oauth.OAuth(
     "https://twitter.com/oauth/request_token", "https://twitter.com/oauth/access_token",
-    _twitterConsumerKey, _twitterConsumerSecret, "1.0A", "http://easymath.eu01.aws.af.cm/twitter", "HMAC-SHA1");
+    _twitterConsumerKey, _twitterConsumerSecret, "1.0A", "http://your_hostname/twitter", "HMAC-SHA1");
 }
 
 function get_user_stats(user, callback){
